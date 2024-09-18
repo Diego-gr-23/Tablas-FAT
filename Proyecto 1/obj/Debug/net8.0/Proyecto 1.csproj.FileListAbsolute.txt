@@ -1,0 +1,18 @@
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\bin\Debug\net8.0\Proyecto 1.exe
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\bin\Debug\net8.0\Proyecto 1.deps.json
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\bin\Debug\net8.0\Proyecto 1.runtimeconfig.json
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\bin\Debug\net8.0\Proyecto 1.dll
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\bin\Debug\net8.0\Proyecto 1.pdb
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\obj\Debug\net8.0\Proyecto 1.csproj.AssemblyReference.cache
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\obj\Debug\net8.0\Proyecto 1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\obj\Debug\net8.0\Proyecto 1.AssemblyInfoInputs.cache
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\obj\Debug\net8.0\Proyecto 1.AssemblyInfo.cs
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\obj\Debug\net8.0\Proyecto 1.csproj.CoreCompileInputs.cache
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\obj\Debug\net8.0\Proyecto 1.sourcelink.json
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\obj\Debug\net8.0\Proyecto 1.csproj.Up2Date
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\obj\Debug\net8.0\Proyecto 1.dll
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\obj\Debug\net8.0\refint\Proyecto 1.dll
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\obj\Debug\net8.0\Proyecto 1.pdb
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\obj\Debug\net8.0\Proyecto 1.genruntimeconfig.cache
+C:\Users\gomez\OneDrive\Escritorio\Manejo E Implementacion de archivos\Tablas-FAT\Proyecto 1\obj\Debug\net8.0\ref\Proyecto 1.dll
