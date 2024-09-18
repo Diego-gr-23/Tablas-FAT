@@ -18,37 +18,6 @@ class FatFiles {
         File.WriteAllText(FatTablePath, json);
     }
 
-     public static string ReadUntilEscape() { //Se encarga de leer cada tecla que presiona el usario hasta presionar ESC
-        StringBuilder input = new StringBuilder();
-        ConsoleKeyInfo key;
-
-        Console.WriteLine("Escribe el contenido del archivo. Presiona ESC para finalizar:");
-
-        do
-        {
-            key = Console.ReadKey(intercept: true); 
-
-            if (key.Key == ConsoleKey.Escape)
-            {
-                break;
-            }
-            else if (key.Key == ConsoleKey.Backspace && input.Length > 0)
-            {
-                Console.Write("\b \b");  
-                input.Length--; 
-            }
-            else if (key.Key != ConsoleKey.Backspace)
-            {
-                Console.Write(key.KeyChar); 
-                input.Append(key.KeyChar);  
-            }
-
-        } while (key.Key != ConsoleKey.Escape);
-
-        Console.WriteLine(); 
-        return input.ToString();
-    }
-
     public static void Creatfile() { // Se encarga de crear un archivo y repartir los datos en 20 segmentos
         Console.Write("Nombre del Archivo: ");
         string fileName = Console.ReadLine();
@@ -129,6 +98,101 @@ class FatFiles {
         }
     } 
 
+    public static void ModifyFile() { // Se encarga de modificar un archivo y remplaza sus segmentos
+        Console.WriteLine("Archivos disponibles:");
+        ListFiles();
+
+        Console.Write("\n Seleccione el numero de archivo a modificar: ");
+        int choice = int.Parse(Console.ReadLine()) - 1;
+
+        if(choice >= 0 && choice < files.Count) {
+            var file = files[choice];
+            Console.WriteLine($"Contenido actual:\n{ReadAllSegments(file.DataPath)}");
+            Console.WriteLine("Ingresa los nuevos datos (hasta presionar ESC):");
+            string newContent = ReadUntilEscape();
+
+            Console.WriteLine("Desea guardar los cambios? (S / N)");
+            if (Console.ReadLine(). ToUpper() == "S"){
+
+                DeleteSegments(file.DataPath);
+
+                file.DataPath = SaveSegments(newContent, file.Name);
+                file.Size = newContent.Length;
+                file.ModificationDate = DateTime.Now;
+
+                SaveFATTable();
+                Console.WriteLine("Arhivo modificado con exito.");
+            }
+        }
+    }
+
+    private static void DeleteSegments(string firstSegmentPath){// Se encarga de eliminar todos los segmentos de un archivo
+        string currentPath = firstSegmentPath;
+
+        while (currentPath != null) {
+            FileSegment segment = JsonConvert.DeserializeObject<FileSegment>(File.ReadAllText(currentPath));
+            File.Delete(currentPath);
+            currentPath = segment.NextFilePath;
+        }
+    }
+
+    private static string ReadUntilEscape(){ // Se encarga de leer los datos que ingresa el usuario hasta que presione la tecla ESC
+        string content = "";
+        ConsoleKeyInfo key;
+
+        do {
+            key = Console.ReadKey(true);
+            if(key.Key != ConsoleKey.Escape){
+                content += key.KeyChar;
+                Console.Write(key.KeyChar);
+            }
+        } while (key.Key != ConsoleKey.Escape);
+
+        Console.WriteLine();
+        return content;
+    }
+
+    public static void DeleteFile() { // Se encarga de elimina un archivo y actualiza la bandeja de la papelera
+        Console.WriteLine("Archivos disponibles: ");
+        ListFiles();
+
+        Console.Write("\n Seleccione el numero de archivo a eliminar: ");
+        int choice  = int.Parse(Console.ReadLine()) - 1;
+
+        if (choice >= 0 && choice < files.Count) {
+            var file = files[choice];
+            
+            Console.WriteLine($"Esta seguro de que desea eliminar el archivo '{file.Name}'? (S/N)");
+            if (Console.ReadLine().ToUpper() == "S") { 
+                file.RecycleBinFlag = true;
+                file.DeletionDate = DateTime.Now;
+                SaveFATTable();
+                Console.WriteLine("Archivo eliminado exitosamente");
+            }
+        }
+    }
+
+    public static void RecoverFile(){ // Se encarga de recuperar un archivo de la papelera
+        Console.WriteLine("Archivos en la papelera de reciclaje:");
+        ListFiles(true);
+
+        Console.Write("\n Seleccione el numero de archivo que desea recuperar: ");
+        int choice = int.Parse(Console.ReadLine()) - 1;
+
+        if (choice >= 0 && choice < files.Count){
+            var file = files[choice];
+
+            if (file.RecycleBinFlag) {
+                Console.WriteLine($"¿Está seguro de que desea recuperar el archivo '{file.Name}'? (S/N)");
+                if (Console.ReadLine().ToUpper() == "S"){
+                    file.RecycleBinFlag = false;
+                    file.DeletionDate = null;
+                    SaveFATTable();
+                    Console.WriteLine("Su archivo se recupero exitosamente");
+                }
+            } 
+        }
+    }
     // static void Main(string[] args)
     // {
     //     while(true){
